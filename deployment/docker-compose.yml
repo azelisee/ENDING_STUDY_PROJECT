@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../deployment/Dockerfile.frontend
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../deployment/Dockerfile.backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+  recommendation:
+    build:
+      context: ..
+      dockerfile: ./deployment/Dockerfile.recommendation
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
