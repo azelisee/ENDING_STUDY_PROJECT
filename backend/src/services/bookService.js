@@ -1,10 +1,8 @@
-const Book = require('../models/bookModel');
+import axios from 'axios';
 
-exports.getAllBooks = async () => {
-    try {
-        return await Book.find();
-    } catch (error) {
-        throw new Error(error.message);
-    }
+const API_URL = 'http://localhost:5000/api';
+
+export const fetchBooks = async () => {
+    const response = await axios.get(`${API_URL}/books/getBooks`);
+    return response.data.books;
 };
-
