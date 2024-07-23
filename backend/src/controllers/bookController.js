@@ -1,4 +1,6 @@
 const Book = require('../models/bookModel');
+const { borrowBook, returnBook } = require('../services/bookService2');
+
 
 exports.getBooks = async (req, res) => {
     try {
@@ -54,3 +56,40 @@ exports.deleteBook = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+exports.searchBooks = async (req, res) => {
+    try {
+        const query = req.query.q;
+        const books = await Book.find({
+            $or: [
+                { title: new RegExp(query, 'i') },
+                { author: new RegExp(query, 'i') },
+                { genre: new RegExp(query, 'i') },
+            ],
+        });
+        res.status(200).json({ books });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+exports.borrowBookController = async (req, res) => {
+    try {
+        const { bookId, userId } = req.body;
+        const book = await borrowBook(bookId, userId);
+        res.status(200).json({ book });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+exports.returnBookController = async (req, res) => {
+    try {
+        const { bookId } = req.body;
+        const book = await returnBook(bookId);
+        res.status(200).json({ book });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+

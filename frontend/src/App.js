@@ -1,28 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './styles/style.css';
-import Header from './components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import SearchPage from './pages/SearchPage';
-import BookList from './components/BookList';
+import Books from './pages/Books';
 import BookDetail from './components/BookDetail';
+import LoginPage from './pages/LoginPage';
+import './styles/style.css';
 
 const App = () => {
-  return (
-    <Router>
-      <Header />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/books" element={<BookList />} />
-          <Route path="/books/:id" element={<BookDetail />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+    return (
+        <AuthProvider>
+            <Router>
+                <div>
+                    <Switch>
+                        <Route path="/" exact component={HomePage} />
+                        <Route path="/books" exact component={Books} />
+                        <Route path="/books/:id" component={BookDetail} />
+                        <Route path="/login" component={LoginPage} />
+                    </Switch>
+                </div>
+            </Router>
+        </AuthProvider>
+    );
 };
 
 export default App;

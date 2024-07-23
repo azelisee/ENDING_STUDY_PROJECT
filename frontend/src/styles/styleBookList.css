@@ -1,0 +1,48 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-item {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: goldenrod;
+    width: calc(25% - 20px); /* Subtracting the gap */
+    box-sizing: border-box;
+}
+
+.book-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.book-title:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .book-item {
+        width: calc(33.3333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .book-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .book-item {
+        width: calc(100% - 20px);
+    }
+}

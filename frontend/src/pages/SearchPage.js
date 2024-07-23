@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/style.css';
 
 const SearchPage = () => {
     const [query, setQuery] = useState('');
@@ -8,11 +9,16 @@ const SearchPage = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`/api/books/search?q=${query}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/books/search?q=${query}`);
             setResults(response.data.books);
         } catch (error) {
             console.error('Error searching books:', error);
         }
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.getFullYear();
     };
 
     return (
@@ -28,7 +34,9 @@ const SearchPage = () => {
                 {results.length > 0 ? (
                     <ul>
                         {results.map((book) => (
-                            <li key={book._id}>{book.title} by {book.author}</li>
+                            <li key={book._id}>
+                                <a href={`/books/${book._id}`}>{book.title}</a> by {book.author} (Published: {formatDate(book.publishedDate)}) - Genre: {book.gender}
+                            </li>
                         ))}
                     </ul>
                 ) : (

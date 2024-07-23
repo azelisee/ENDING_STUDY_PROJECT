@@ -4,7 +4,7 @@ const API_URL = 'http://localhost:5000/api';
 const RECOMMENDATION_URL = 'http://localhost:8000';
 
 export const fetchBooks = async () => {
-    const response = await axios.get(`${API_URL}/books`);
+    const response = await axios.get(`${API_URL}/books/getBooks`);
     return response.data;
 };
 

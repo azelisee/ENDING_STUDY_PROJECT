@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const user = require('../models/userModel');
 
 const bookSchema = new mongoose.Schema({
     title: {
@@ -13,10 +14,18 @@ const bookSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    genre: {
+    gender: {
         type: String,
         required: true,
     },
+    isBorrowed: {
+        type: Boolean,
+        default: false
+    },
+    borrowedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: user, default: null
+    }
 });
 
 module.exports = mongoose.model('Book', bookSchema);

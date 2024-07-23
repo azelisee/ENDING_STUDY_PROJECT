@@ -1,35 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { fetchBooks } from '../services/bookService';
+import '../styles/style.css';
 
 const BookList = () => {
-  const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/books`);
-        setBooks(response.data.books);
-      } catch (error) {
-        console.error('Error fetching books:', error);
-      }
-    };
+    useEffect(() => {
+        const getBooks = async () => {
+            try {
+                const data = await fetchBooks();
+                if (Array.isArray(data.books)) {
+                    setBooks(data.books);
+                } else {
+                    console.error('Books data is not an array:', data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch books:', error);
+            }
+        };
 
-    fetchBooks();
-  }, []);
+        getBooks();
+    }, []);
 
-  return (
-    <div>
-      <h2>Book List</h2>
-      <ul>
-        {books.map((book) => (
-          <li key={book._id}>
-            <Link to={`/books/${book._id}`}>{book.title}</Link> by {book.author}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div className="book-list">
+            <h2>Book List</h2>
+            <div className="book-grid">
+                {books.length > 0 ? (
+                    books.map((book) => (
+                        <div key={book._id} className="book-card">
+                            <Link to={`/books/${book._id}`}>
+                                <h3>{book.title}</h3>
+                            </Link>
+                            <p>By {book.author}</p>
+                            <p>Published: {new Date(book.publishedDate).getFullYear()}</p>
+                            <p>Gender: {book.gender}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No books available</p>
+                )}
+            </div>
+        </div>
+    );
 };
 
 export default BookList;

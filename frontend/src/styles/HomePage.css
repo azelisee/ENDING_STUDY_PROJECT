@@ -1,0 +1,103 @@
+/* HomePage.css */
+
+body {
+    font-family: 'Times New Roman';
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 50px 0;
+    background-color: goldenrod;
+    color: white;
+    width: 100%;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.intro-section, .features-section, .cta-section {
+    margin-bottom: 40px;
+    text-align: center;
+    width: 80%;
+}
+
+.intro-section h2, .features-section h2, .cta-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    color: goldenrod;
+}
+
+.features-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features-section ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cta-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: goldenrod;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: gold;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+.footer a {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
