@@ -9,7 +9,7 @@ numpy==1.26.4
 opt-einsum==3.3.0
 optree==0.11.0
 orjson==3.10.5
-packaging==24.1
+packaging==23.0
 protobuf==4.25.3
 pydantic_core==2.18.4
 Pygments==2.18.0
@@ -29,3 +29,11 @@ ujson==5.10.0
 urllib3==2.2.2
 websockets==12.0
 wrapt==1.16.0
+langchain==0.0.272
+openai==0.27.9
+PyPDF2==3.0.1
+streamlit==1.25.0
+pandas==2.0.3
+faiss-cpu==1.7.4
+tiktoken==0.4.0
+pymongo==3.12.3

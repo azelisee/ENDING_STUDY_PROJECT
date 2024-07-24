@@ -30,6 +30,10 @@ const BookDetail = () => {
     }, [id, user, navigate]);
 
     const handleBorrow = async () => {
+        if (book.isBorrowed) {
+            setMessage('Book is already borrowed.');
+            return;
+        }
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/borrowBook`, { bookId: book._id, userId: user.id });
             setBook(response.data.book);
@@ -58,17 +62,22 @@ const BookDetail = () => {
     return (
         <center>
             <div className='book-card'>
-            <h2>{book.title}</h2>
-            <p><strong>Author:</strong> {book.author}</p>
-            <p><strong>Published Date:</strong> {new Date(book.publishedDate).getFullYear()}</p>
-            <p><strong>Gender:</strong> {book.gender}</p>
-            {book.isBorrowed ? (
-                <button onClick={handleReturn}>Return</button>
-            ) : (
-                <button onClick={handleBorrow}>Borrow</button>
-            )}
-            {message && <p>{message}</p>}
-        </div>
+                <h2>{book.title}</h2>
+                <p><strong>Author:</strong> {book.author}</p>
+                <p><strong>Published Date:</strong> {new Date(book.publishedDate).getFullYear()}</p>
+                <p><strong>Gender:</strong> {book.gender}</p>
+                {book.isBorrowed ? (
+                    <>
+                        <button onClick={handleReturn}>Return</button>
+                        {message && <p>{message}</p>}
+                    </>
+                ) : (
+                    <>
+                        <button onClick={handleBorrow}>Borrow</button>
+                        {message && <p>{message}</p>}
+                    </>
+                )}
+            </div>
         </center>
     );
 };

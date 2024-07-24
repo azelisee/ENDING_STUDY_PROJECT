@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const user = require('../models/userModel');
 
 const bookSchema = new mongoose.Schema({
     title: {
@@ -24,7 +23,8 @@ const bookSchema = new mongoose.Schema({
     },
     borrowedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: user, default: null
+        ref: 'User',
+        default: null
     }
 });
 

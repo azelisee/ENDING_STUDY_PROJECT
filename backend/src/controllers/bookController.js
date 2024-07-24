@@ -85,8 +85,8 @@ exports.borrowBookController = async (req, res) => {
 
 exports.returnBookController = async (req, res) => {
     try {
-        const { bookId } = req.body;
-        const book = await returnBook(bookId);
+        const { bookId, userId } = req.body;
+        const book = await returnBook(bookId, userId);
         res.status(200).json({ book });
     } catch (error) {
         res.status(500).json({ error: error.message });
