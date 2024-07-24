@@ -40,7 +40,7 @@ const HomePage = () => {
             </main>
             <footer className="footer">
                 <p>&copy; 2024 Digital Library. All rights reserved.</p>
-                <p>Contact us at <a href="mailto:support@digitallibrary.com">support@digitallibrary.com</a></p>
+                <p>Contact us at <a href="mailto:azoumaelisee98@gmail.com">azoumaelisee98@gmail.com</a></p>
             </footer>
         </div>
     );

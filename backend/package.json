@@ -1,29 +1,27 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "jest",
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "mongoose": "^8.5.0",
-    "nodemon": "^2.0.22",
-    "supertest": "^7.0.0"
-  }
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "nodemon src/server.js"
+    },
+    "dependencies": {
+        "axios": "^1.7.2",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "fs": "^0.0.1-security",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.5.1",
+        "path": "^0.12.7",
+        "socket.io": "^4.7.5"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.4"
+    },
+    "author": "",
+    "license": "ISC"
 }

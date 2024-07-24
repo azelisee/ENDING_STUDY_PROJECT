@@ -1,6 +1,5 @@
 import React from 'react';
 import BookList from '../components/BookList';
-import '../styles/style.css';
 
 const Books = () => {
     return (

@@ -59,17 +59,17 @@ exports.deleteBook = async (req, res) => {
 
 exports.searchBooks = async (req, res) => {
     try {
-        const query = req.query.q;
+        const query = req.body.query;
         const books = await Book.find({
             $or: [
                 { title: new RegExp(query, 'i') },
                 { author: new RegExp(query, 'i') },
-                { genre: new RegExp(query, 'i') },
-            ],
+                { gender: new RegExp(query, 'i') }
+            ]
         });
-        res.status(200).json({ books });
+        res.json({ books });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ message: 'Error searching books', error });
     }
 };
 

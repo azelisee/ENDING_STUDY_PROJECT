@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/style.css';
+import '../styles/styleBookList.css';
 
 const SearchPage = () => {
     const [query, setQuery] = useState('');
@@ -9,7 +9,7 @@ const SearchPage = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/books/search?q=${query}`);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/search`, { query });
             setResults(response.data.books);
         } catch (error) {
             console.error('Error searching books:', error);
@@ -23,26 +23,37 @@ const SearchPage = () => {
 
     return (
         <div>
-            <h2>Search Books</h2>
             <form onSubmit={handleSearch}>
+                <center><h2>Search Books</h2></center>
                 <div>
-                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for books..."/>
+                    <input
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Search for books..."
+                    />
                     <button type="submit">Search</button>
                 </div>
             </form>
-            <div>
+            <br/>
+            <center>
+            <div className="book-list">
                 {results.length > 0 ? (
-                    <ul>
+                    <div className="book-grid">
                         {results.map((book) => (
-                            <li key={book._id}>
-                                <a href={`/books/${book._id}`}>{book.title}</a> by {book.author} (Published: {formatDate(book.publishedDate)}) - Genre: {book.gender}
-                            </li>
+                            <div key={book._id} className="book-card">
+                                <a href={`/books/${book._id}`} className="book-title">{book.title}</a>
+                                <p>By {book.author}</p>
+                                <p>Published: {formatDate(book.publishedDate)}</p>
+                                <p>Gender: {book.gender}</p>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
                     <p>No books found.</p>
                 )}
             </div>
+            </center>
         </div>
     );
 };

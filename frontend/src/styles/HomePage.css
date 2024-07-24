@@ -1,9 +1,7 @@
-/* HomePage.css */
-
 body {
     font-family: 'Times New Roman';
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: black;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -12,9 +10,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    background-color: black;
 }
 
 .header {

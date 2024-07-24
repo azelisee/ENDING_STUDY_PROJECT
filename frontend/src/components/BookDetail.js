@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import '../styles/style.css';
@@ -9,11 +9,11 @@ const BookDetail = () => {
     const [book, setBook] = useState(null);
     const [message, setMessage] = useState('');
     const { user } = useAuth();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!user) {
-            history.push('/login');
+            navigate('/login');
             return;
         }
 
@@ -27,11 +27,11 @@ const BookDetail = () => {
         };
 
         fetchBook();
-    }, [id, user, history]);
+    }, [id, user, navigate]);
 
     const handleBorrow = async () => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/${id}/borrowBook`, { userId: user.id });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/borrowBook`, { bookId: book._id, userId: user.id });
             setBook(response.data.book);
             setMessage('Book borrowed successfully.');
         } catch (error) {
@@ -42,7 +42,7 @@ const BookDetail = () => {
 
     const handleReturn = async () => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/${id}/returnBook`, { userId: user.id });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/returnBook`, { bookId: book._id, userId: user.id  });
             setBook(response.data.book);
             setMessage('Book returned successfully.');
         } catch (error) {
@@ -56,11 +56,12 @@ const BookDetail = () => {
     }
 
     return (
-        <div>
+        <center>
+            <div className='book-card'>
             <h2>{book.title}</h2>
             <p><strong>Author:</strong> {book.author}</p>
             <p><strong>Published Date:</strong> {new Date(book.publishedDate).getFullYear()}</p>
-            <p><strong>Genre:</strong> {book.genre}</p>
+            <p><strong>Gender:</strong> {book.gender}</p>
             {book.isBorrowed ? (
                 <button onClick={handleReturn}>Return</button>
             ) : (
@@ -68,6 +69,7 @@ const BookDetail = () => {
             )}
             {message && <p>{message}</p>}
         </div>
+        </center>
     );
 };
 

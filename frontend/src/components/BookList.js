@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchBooks } from '../services/bookService';
-import '../styles/style.css';
+import '../styles/styleBookList.css';
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
@@ -24,14 +24,15 @@ const BookList = () => {
     }, []);
 
     return (
-        <div className="book-list">
-            <h2>Book List</h2>
+        <center>
+            <div className="book-list">
+            <center><h2>Book List</h2></center>
             <div className="book-grid">
                 {books.length > 0 ? (
                     books.map((book) => (
                         <div key={book._id} className="book-card">
                             <Link to={`/books/${book._id}`}>
-                                <h3>{book.title}</h3>
+                                <h3 className="book-title">{book.title}</h3>
                             </Link>
                             <p>By {book.author}</p>
                             <p>Published: {new Date(book.publishedDate).getFullYear()}</p>
@@ -43,6 +44,7 @@ const BookList = () => {
                 )}
             </div>
         </div>
+        </center>
     );
 };
 
