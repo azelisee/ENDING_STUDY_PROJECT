@@ -1,12 +1,19 @@
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from services.recommendation_service import RecommendationService, find_user_by_email_and_name
+import openai
+import os
 
 app = FastAPI()
 
 class UserRequest(BaseModel):
     email: str
     name: str
+
+class ChatRequest(BaseModel):
+    question: str
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.post("/recommend")
 async def recommend_books(user_request: UserRequest):
@@ -17,3 +24,18 @@ async def recommend_books(user_request: UserRequest):
     user_id = str(user["_id"])
     recommendations = RecommendationService.get_user_recommendations(user_id)
     return {"recommendations": recommendations}
+
+@app.post("/chat")
+async def chat_with_bot(chat_request: ChatRequest):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Utilisez un modèle valide
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": chat_request.question}
+            ]
+        )
+        return {"response": response.choices[0].message["content"].strip()}
+    except openai.error.InvalidRequestError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+44

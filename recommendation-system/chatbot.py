@@ -24,3 +24,21 @@ if st.button("Get Recommendations"):
             st.write("User not found or other error.")
     else:
         st.write("Please enter both name and email.")
+
+st.title("Ask the Chatbot")
+
+question = st.text_input("Ask a question about books, authors, etc.")
+
+if st.button("Ask"):
+    if question:
+        response = requests.post(
+            "http://localhost:8001/chat",
+            json={"question": question}
+        )
+        if response.status_code == 200:
+            answer = response.json().get("response", "No answer found.")
+            st.write(f"Answer: {answer}")
+        else:
+            st.write("Error in getting the answer.")
+    else:
+        st.write("Please enter a question.")
