@@ -6,18 +6,30 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const socketIo = require('socket.io');
 const Book = require('./models/bookModel');
-const fs = require('fs');
-const path = require('path');
 
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server)
+const io = socketIo(server);
 
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
+
+// Import routes
+const bookRoutes = require('./routes/bookRoutes');
+const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+const recommendationRoutes = require('./routes/recommendationRoutes');
+const { router: chatbotRoutes } = require('./routes/chatBotRoutes');
+
+// Middleware
+app.use('/api/books', bookRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api', recommendationRoutes);
+app.use('/api', chatbotRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -33,17 +45,5 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     }
   })
   .catch(err => console.log(err));
-
-// Import routes
-const bookRoutes = require('./routes/bookRoutes');
-const userRoutes = require('./routes/userRoutes');
-const authRoutes = require('./routes/authRoutes');
-const recommendationRoutes = require('./routes/recommendationRoutes');
-
-// Middleware
-app.use('/api/books', bookRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api', recommendationRoutes);
 
 module.exports = app;

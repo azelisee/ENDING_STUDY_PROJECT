@@ -11,3 +11,13 @@ export const fetchBooks = async () => {
         return [];
     }
 };
+
+export const fetchUsers = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/books/getUsers`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return [];
+    }
+};

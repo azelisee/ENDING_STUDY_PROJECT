@@ -30,10 +30,6 @@ const BookDetail = () => {
     }, [id, user, navigate]);
 
     const handleBorrow = async () => {
-        if (book.isBorrowed) {
-            setMessage('Book is already borrowed.');
-            return;
-        }
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/borrowBook`, { bookId: book._id, userId: user.id });
             setBook(response.data.book);
@@ -46,12 +42,22 @@ const BookDetail = () => {
 
     const handleReturn = async () => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/returnBook`, { bookId: book._id, userId: user.id  });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/returnBook`, { bookId: book._id, userId: user.id });
             setBook(response.data.book);
             setMessage('Book returned successfully.');
         } catch (error) {
             console.error('Error returning book:', error);
             setMessage('Error returning book.');
+        }
+    };
+
+    const handleStartChatbot = async () => {
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/chatbot`);
+            setMessage(response.data.message);
+        } catch (error) {
+            console.error('Error starting chatbot:', error);
+            setMessage('Error starting chatbot.');
         }
     };
 
@@ -67,16 +73,12 @@ const BookDetail = () => {
                 <p><strong>Published Date:</strong> {new Date(book.publishedDate).getFullYear()}</p>
                 <p><strong>Gender:</strong> {book.gender}</p>
                 {book.isBorrowed ? (
-                    <>
-                        <button onClick={handleReturn}>Return</button>
-                        {message && <p>{message}</p>}
-                    </>
+                    <button onClick={handleReturn}>Return</button>
                 ) : (
-                    <>
-                        <button onClick={handleBorrow}>Borrow</button>
-                        {message && <p>{message}</p>}
-                    </>
+                    <button onClick={handleBorrow}>Borrow</button>
                 )}
+                <button onClick={handleStartChatbot}>Look for recommendations</button>
+                {message && <p>{message}</p>}
             </div>
         </center>
     );

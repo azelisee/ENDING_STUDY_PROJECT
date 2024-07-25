@@ -1,25 +1,20 @@
-const { spawn } = require('child_process');
-const path = require('path');
+const User = require('../models/userModel');
+const Book = require('../models/bookModel');
 
-// Chemin absolu vers le script Python
-const scriptPath = path.join(__dirname, '../../recommendation-system/services/recommendation_service.py');
+exports.runRecommendationService = async (req, res) => {
+    try {
+        const { name, email } = req.body;
+        const user = await User.findOne({ name, email }).populate('borrowedBooks');
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const borrowedGenres = user.borrowedBooks.map(book => book.gender);
+        const uniqueGenres = [...new Set(borrowedGenres)];
 
-const runRecommendationService = (req, res) => {
-  const process = spawn('python', [scriptPath]);
+        const recommendedBooks = await Book.find({ gender: { $in: uniqueGenres } });
 
-  process.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
-    res.send(data);
-  });
-
-  process.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
-    res.status(500).send(data);
-  });
-
-  process.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
-  });
+        res.status(200).json({ recommendations: recommendedBooks });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 };
-
-module.exports = { runRecommendationService };

@@ -73,7 +73,7 @@ body {
 .cta-button {
     text-decoration: none;
     padding: 10px 20px;
-    background-color: goldenrod;
+    background-color: orange;
     color: white;
     border-radius: 5px;
     font-size: 1.1em;
@@ -81,7 +81,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: gold;
+    background-color: orangered;
 }
 
 .footer {

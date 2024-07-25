@@ -15,6 +15,8 @@ class ChatRequest(BaseModel):
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+conversation_history = []
+
 @app.post("/recommend")
 async def recommend_books(user_request: UserRequest):
     user = find_user_by_email_and_name(user_request.email, user_request.name)
@@ -27,15 +29,18 @@ async def recommend_books(user_request: UserRequest):
 
 @app.post("/chat")
 async def chat_with_bot(chat_request: ChatRequest):
+    global conversation_history
     try:
+        conversation_history.append({"role": "user", "content": chat_request.question})
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # Utilisez un modèle valide
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": chat_request.question}
+                *conversation_history
             ]
         )
-        return {"response": response.choices[0].message["content"].strip()}
+        answer = response.choices[0].message["content"].strip()
+        conversation_history.append({"role": "assistant", "content": answer})
+        return {"response": answer}
     except openai.error.InvalidRequestError as e:
         raise HTTPException(status_code=500, detail=str(e))
-44

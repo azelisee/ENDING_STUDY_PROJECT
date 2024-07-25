@@ -13,7 +13,7 @@ const HomePage = () => {
                 <section className="intro-section">
                     <h2>About Our Library</h2>
                     <p>
-                        Our digital library offers an extensive collection of books across various genres and disciplines. Whether you’re a student, a professional, or a book enthusiast, you’ll find something of interest.
+                        Our digital library offers an extensive collection of books across various genre s and disciplines. Whether you’re a student, a professional, or a book enthusiast, you’ll find something of interest.
                     </p>
                     <p>
                         We aim to provide easy access to knowledge and learning materials, making it simple for you to explore, read, and grow.

@@ -28,16 +28,3 @@ class RecommendationService:
 
 def find_user_by_email_and_name(email, name):
     return db.users.find_one({"email": email, "name": name})
-
-def find_books_borrowed_by_user(user_id):
-    borrowed_books = db.users.find({"borrowedBooks": bson.ObjectId(user_id)})
-    return [
-        {
-            "_id": str(book["_id"]),
-            "title": book["title"],
-            "author": book["author"],
-            "publishedDate": book["publishedDate"],
-            "gender": book["gender"],
-        }
-        for book in borrowed_books
-    ]

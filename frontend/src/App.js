@@ -8,21 +8,24 @@ import RegisterPage from './pages/RegisterPage';
 import AboutPage from './pages/AboutPage';
 import SearchPage from './pages/SearchPage';
 import { AuthProvider } from './context/AuthContext';
-import './styles/style.css';
-import WebSocketClient from './components/WebSocketClient';
+import Management from './components/Management';
+import './styles/styleHeader.css';
 
 const App = () => {
     return (
         <AuthProvider>
             <Router>
-                <nav>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/books">Books</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/login">Login</Link></li>
+                <nav className="navbar">
+                    <ul className="nav-list">
+                        <li><button className="nav-list button"><Link to="/">Home</Link></button></li>
+                        <li><button className="nav-list button"><Link to="/books">Books</Link></button></li>
+                        <li><button className="nav-list button"><Link to="/about">About</Link></button></li>
+                        <li><button className="nav-list button"><Link to="/login">Login</Link></button></li>
+                        <li><button className="nav-list button"><Link to="/Management">Management</Link></button></li>
                     </ul>
                 </nav>
+                <br/>
+                <br/>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/books" element={<BookList />} />
@@ -31,7 +34,7 @@ const App = () => {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/about" element={<AboutPage />} />
-                    <Route path="/websocketclient" element={<WebSocketClient />} />
+                    <Route path="/Management" element={<Management />} />
                 </Routes>
             </Router>
         </AuthProvider>

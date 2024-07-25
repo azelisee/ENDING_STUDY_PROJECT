@@ -33,14 +33,14 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: goldenrod;
+    background-color: orange;
     color: #fff;
     cursor: pointer;
     margin-top: 10px;
 }
 
 button:hover {
-    background-color: gold;
+    background-color: orangered;
 }
 
 p {

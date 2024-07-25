@@ -19,8 +19,8 @@ const BookList = () => {
                 console.error('Failed to fetch books:', error);
             }
         };
-
         getBooks();
+
     }, []);
 
     return (

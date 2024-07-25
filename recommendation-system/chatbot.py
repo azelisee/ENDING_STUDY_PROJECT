@@ -3,6 +3,9 @@ import requests
 
 st.title("Library Recommendation Chatbot")
 
+if "conversation" not in st.session_state:
+    st.session_state.conversation = []
+
 name = st.text_input("Enter your name")
 email = st.text_input("Enter your email")
 
@@ -31,14 +34,23 @@ question = st.text_input("Ask a question about books, authors, etc.")
 
 if st.button("Ask"):
     if question:
+        st.session_state.conversation.append({"role": "user", "content": question})
         response = requests.post(
             "http://localhost:8001/chat",
             json={"question": question}
         )
         if response.status_code == 200:
             answer = response.json().get("response", "No answer found.")
-            st.write(f"Answer: {answer}")
+            st.session_state.conversation.append({"role": "bot", "content": answer})
         else:
             st.write("Error in getting the answer.")
+        # Réinitialiser la question après avoir envoyé
+        st.session_state.question = ""
+        st.experimental_rerun()
+
+# Afficher l'historique de la conversation en haut
+for message in st.session_state.conversation:
+    if message["role"] == "user":
+        st.write(f"User: {message['content']}")
     else:
-        st.write("Please enter a question.")
+        st.write(f"Bot: {message['content']}")

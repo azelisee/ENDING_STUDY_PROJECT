@@ -35,7 +35,7 @@ nav {
 }
 
 .nav-list button {
-    background-color: goldenrod;
+    background-color: orange;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -45,5 +45,5 @@ nav {
 
 .nav-list button:hover,
 .nav-list a:hover {
-    background-color: gold;
+    background-color: orangered;
 }
