@@ -14,7 +14,7 @@ export const fetchBooks = async () => {
 
 export const fetchUsers = async () => {
     try {
-        const response = await axios.get(`${API_URL}/books/getUsers`);
+        const response = await axios.get(`${API_URL}/users/getUsers`);
         return response.data;
     } catch (error) {
         console.error('Error fetching users:', error);

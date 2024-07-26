@@ -14,6 +14,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: black;
+    margin-bottom: 100px; /* Ajouter un margin-bottom pour éviter que le bas de page se colle */
 }
 
 .header {

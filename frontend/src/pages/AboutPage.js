@@ -21,12 +21,10 @@ const AboutPage = () => {
                 <p>
                     Our dedicated team of developers, librarians, and support staff work tirelessly to ensure that our library remains up-to-date and functional. Meet the minds behind our library:
                 </p>
-                <ul>
-                    <li><strong>Franck Blackman</strong> - Lead Developer</li>
-                    <li><strong>Eduard Whiteman</strong> - Librarian</li>
-                    <li><strong>Oliver Queen</strong> - UX/UI Designer</li>
-                    <li><strong>Tomy Merlyn</strong> - Customer Support</li>
-                </ul>
+                    <strong>Franck Blackman</strong> - Lead Developer<br/>
+                    <strong>Eduard Whiteman</strong> - Librarian<br/>
+                    <strong>Oliver Queen</strong> - UX/UI Designer<br/>
+                    <strong>Tomy Merlyn</strong> - Customer Support
             </section>
             <section className="section">
                 <h3>Contact Us</h3>

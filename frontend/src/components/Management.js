@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchUsers } from '../services/bookService';
+import '../styles/styleBookList.css';
 
 const Management = () => {
     const [users, setUsers] = useState([]);
@@ -8,8 +9,8 @@ const Management = () => {
         const getUsers = async () => {
             try {
                 const data = await fetchUsers();
-                if (Array.isArray(data.users)) {
-                    setUsers(data.users);
+                if (Array.isArray(data)) {
+                    setUsers(data);
                 } else {
                     console.error('Users data is not an array:', data);
                 }
@@ -22,35 +23,39 @@ const Management = () => {
 
     return (
         <center>
-            <div>
-                <h2>Users situation</h2>
-                <br/>
-                {users.length > 0 ?(
+            <h2>Users situations : borrows and returns</h2>
+            <p style={{margin:'100px',marginTop:'30px',  display:'flex',flexWrap:'wrap',gap:'20px'}}>
+                {users.length > 0 ? (
                     users.map((user) => (
-                    <div key={user._id}>
-                        <h3>Name : {user.name}</h3>
+                    <p key={user._id} className="book-card">
+                        <h3 >Name : {user.name}</h3>
                         <h3>Email : {user.email}</h3>
                         <br/>
                         <h4>Borrows:</h4>
-                        <ul>
-                            {user.borrowedBooks.map(book => (
-                                <li key={book._id}>{book.title} by {book.author}</li>
-                            ))}
-                        </ul>
+                            {user.borrowedBooks && user.borrowedBooks.length > 0 ? (
+                                user.borrowedBooks.map(book => (
+                                    <p key={book._id}>{book.title} <b>by</b> {book.author}</p>
+                                ))
+                            ) : (
+                                <p>No books borrowed</p>
+                            )}
                         <br/>
-                        <h4>Returns:</h4>
-                        <ul>
-                            {user.returnedBooks.map(book => (
-                                <li key={book._id}>{book.title} by {book.author}</li>
-                            ))}
-                        </ul>
                         <hr/>
-                    </div>
+                        <hr/>
+                        <h4>Returns:</h4>
+                            {user.returnedBooks && user.returnedBooks.length > 0 ? (
+                                user.returnedBooks.map(book => (
+                                    <p key={book._id}>{book.title} <b>by</b> {book.author}</p>
+                                ))
+                            ) : (
+                                <p>No books returned</p>
+                            )}
+                    </p>
                     ))
                 ) : (
                     <p>No users available</p>
                 )}
-            </div>
+        </p>
         </center>
     );
 };
