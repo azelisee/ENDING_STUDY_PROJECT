@@ -71,7 +71,7 @@ const BookDetail = () => {
                 <h2>{book.title}</h2>
                 <p><strong>Author:</strong> {book.author}</p>
                 <p><strong>Published Date:</strong> {new Date(book.publishedDate).getFullYear()}</p>
-                <p><strong>Gender:</strong> {book.gender}</p>
+                <p><strong>Type:</strong> {book.type}</p>
                 {book.isBorrowed ? (
                     <button onClick={handleReturn}>Return</button>
                 ) : (

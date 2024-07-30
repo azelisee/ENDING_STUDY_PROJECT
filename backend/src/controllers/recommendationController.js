@@ -8,10 +8,10 @@ exports.runRecommendationService = async (req, res) => {
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-        const borrowedGenres = user.borrowedBooks.map(book => book.gender);
+        const borrowedGenres = user.borrowedBooks.map(book => book.type);
         const uniqueGenres = [...new Set(borrowedGenres)];
 
-        const recommendedBooks = await Book.find({ gender: { $in: uniqueGenres } });
+        const recommendedBooks = await Book.find({ type: { $in: uniqueGenres } });
 
         res.status(200).json({ recommendations: recommendedBooks });
     } catch (error) {

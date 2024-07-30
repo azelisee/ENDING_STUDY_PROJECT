@@ -1,9 +1,35 @@
 # Dockerfile.frontend
-FROM node:14
+
+# Définir la version de Node.js
+FROM node:16
+
+# Définir le répertoire de travail
 WORKDIR /app
-COPY package.json ./
+
+# Copier les fichiers package.json et package-lock.json depuis le répertoire frontend
+COPY ../frontend/package.json ../frontend/package-lock.json ./
+
+# Installer les dépendances
 RUN npm install
-COPY . .
+
+# Copier tous les fichiers de l'application depuis le répertoire frontend
+COPY ../frontend .
+
+# Construire l'application
 RUN npm run build
+
+# Installer 'serve' pour servir les fichiers construits
+RUN npm install -g serve
+
+# Exposer le port utilisé par l'application
 EXPOSE 3000
-CMD ["npm", "start"]
+
+# Démarrer l'application en utilisant 'serve'
+CMD ["serve", "-s", "build"]
+
+
+
+
+
+
+

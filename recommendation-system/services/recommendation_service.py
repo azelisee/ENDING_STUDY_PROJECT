@@ -12,16 +12,16 @@ class RecommendationService:
     @staticmethod
     def get_user_recommendations(user_id):
         user_books = db.books.find({"borrowedBy": bson.ObjectId(user_id)})
-        gender = {book["gender"] for book in user_books}
+        type = {book["type"] for book in user_books}
 
-        recommendations = db.books.find({"gender": {"$in": list(gender)}})
+        recommendations = db.books.find({"type": {"$in": list(type)}})
         return [
             {
                 "_id": str(recommendation["_id"]),
                 "title": recommendation["title"],
                 "author": recommendation["author"],
                 "publishedDate": recommendation["publishedDate"],
-                "gender": recommendation["gender"]
+                "type": recommendation["type"]
             }
             for recommendation in recommendations
         ]

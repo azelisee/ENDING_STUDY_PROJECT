@@ -64,7 +64,7 @@ exports.searchBooks = async (req, res) => {
             $or: [
                 { title: new RegExp(query, 'i') },
                 { author: new RegExp(query, 'i') },
-                { gender: new RegExp(query, 'i') }
+                { type: new RegExp(query, 'i') }
             ]
         });
         res.json({ books });

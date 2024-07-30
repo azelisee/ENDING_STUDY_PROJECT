@@ -36,7 +36,7 @@ const BookList = () => {
                             </Link>
                             <p>By {book.author}</p>
                             <p>Published: {new Date(book.publishedDate).getFullYear()}</p>
-                            <p>Gender: {book.gender}</p>
+                            <p>Type: {book.type}</p>
                         </div>
                     ))
                 ) : (

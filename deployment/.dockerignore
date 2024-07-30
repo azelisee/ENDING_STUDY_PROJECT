@@ -1,0 +1,12 @@
+# Ignorer le dossier node_modules
+../backend/node_modules
+../frontend/node_modules
+npm-debug.log
+
+
+# Ignorer l'environment python
+../recommendation-system/venv/
+
+
+# Autres dossiers non necessaires
+../recommendation-system/__pycache__/

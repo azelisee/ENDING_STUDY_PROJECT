@@ -1,8 +1,24 @@
 # Dockerfile.backend
-FROM node:14
+
+# Définir la version de Node.js
+FROM node:16
+
+# Définir le répertoire de travail
 WORKDIR /app
-COPY package.json ./
+
+# Copier les fichiers package.json et package-lock.json depuis le répertoire backend
+COPY ../backend/package.json ../backend/package-lock.json ./
+
+# Installer les dépendances
 RUN npm install
-COPY . .
+
+# Copier tous les fichiers de l'application depuis le répertoire backend
+COPY ../backend .
+
+# Exposer le port utilisé par l'application
 EXPOSE 5000
-CMD ["node", "src/server.js"]
+
+# Démarrer l'application avec nodemon
+CMD ["npm", "start"]
+
+

@@ -12,7 +12,7 @@ email = st.text_input("Enter your email")
 if st.button("Get Recommendations"):
     if name and email:
         response = requests.post(
-            "http://localhost:8001/recommend",
+            "http://localhost:8000/recommend",
             json={"name": name, "email": email}
         )
         if response.status_code == 200:
@@ -20,7 +20,7 @@ if st.button("Get Recommendations"):
             if recommendations:
                 st.write("Recommended Books:")
                 for book in recommendations:
-                    st.write(f"Title: {book['title']}, Author: {book['author']}, Gender: {book['gender']}")
+                    st.write(f"Title: {book['title']},  Author: {book['author']},  Type: {book['type']}")
             else:
                 st.write("No recommendations found.")
         else:
@@ -36,7 +36,7 @@ if st.button("Ask"):
     if question:
         st.session_state.conversation.append({"role": "user", "content": question})
         response = requests.post(
-            "http://localhost:8001/chat",
+            "http://localhost:8000/chat",
             json={"question": question}
         )
         if response.status_code == 200:

@@ -1,32 +1,50 @@
 version: '3.9'
 
 services:
-  frontend:
-    build:
-      context: ../frontend
-      dockerfile: ../deployment/Dockerfile.frontend
+  mongodb:
+    image: mongo
+    container_name: mongodb-image
     ports:
-      - "3000:3000"
+      - '27017:27017'
+    networks:
+      - library-network
 
   backend:
     build:
-      context: ../backend
-      dockerfile: ../deployment/Dockerfile.backend
+      context: ..
+      dockerfile: deployment/Dockerfile.backend
+    container_name: backend-image
     ports:
-      - "5000:5000"
+      - '5000:5000'
     depends_on:
-      - mongo
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://localhost:27017/library_db
+    networks:
+      - library-network
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.frontend
+    container_name: frontend-image
+    ports:
+      - '3000:3000'
+    networks:
+      - library-network
 
   recommendation:
     build:
       context: ..
-      dockerfile: ./deployment/Dockerfile.recommendation
+      dockerfile: deployment/Dockerfile.recommendation
+    container_name: recommendation-image
     ports:
-      - "8000:8000"
+      - '8000:8000'
     depends_on:
-      - mongo
+      - mongodb
+    networks:
+      - library-network
 
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
+networks:
+  library-network:
+    driver: bridge

@@ -45,7 +45,7 @@ const SearchPage = () => {
                                 <a href={`/books/${book._id}`} className="book-title">{book.title}</a>
                                 <p>By {book.author}</p>
                                 <p>Published: {formatDate(book.publishedDate)}</p>
-                                <p>Gender: {book.gender}</p>
+                                <p>Type: {book.type}</p>
                             </div>
                         ))}
                     </div>
