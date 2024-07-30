@@ -7,13 +7,13 @@ FROM node:16
 WORKDIR /app
 
 # Copier les fichiers package.json et package-lock.json depuis le répertoire backend
-COPY ../backend/package.json ../backend/package-lock.json ./
+COPY ../backend/package.json ./backend/package-lock.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tous les fichiers de l'application depuis le répertoire backend
-COPY ../backend .
+COPY ../backend ./
 
 # Exposer le port utilisé par l'application
 EXPOSE 5000

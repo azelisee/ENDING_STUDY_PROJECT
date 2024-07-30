@@ -2,8 +2,8 @@ version: '3.9'
 
 services:
   mongodb:
-    image: mongo
-    container_name: mongodb-image
+    image: mongo:latest
+    container_name: mongodb-deployment
     ports:
       - '27017:27017'
     networks:
@@ -13,13 +13,14 @@ services:
     build:
       context: ..
       dockerfile: deployment/Dockerfile.backend
-    container_name: backend-image
+    container_name: backend-deployment
     ports:
       - '5000:5000'
     depends_on:
       - mongodb
     environment:
-      - MONGO_URI=mongodb://localhost:27017/library_db
+      - MONGO_URI=mongodb://mongodb:27017/library_db
+
     networks:
       - library-network
 
@@ -27,7 +28,7 @@ services:
     build:
       context: ..
       dockerfile: deployment/Dockerfile.frontend
-    container_name: frontend-image
+    container_name: frontend-deployment
     ports:
       - '3000:3000'
     networks:
@@ -37,7 +38,7 @@ services:
     build:
       context: ..
       dockerfile: deployment/Dockerfile.recommendation
-    container_name: recommendation-image
+    container_name: recommendation-deployment
     ports:
       - '8000:8000'
     depends_on:
