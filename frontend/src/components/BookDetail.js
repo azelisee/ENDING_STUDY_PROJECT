@@ -30,6 +30,10 @@ const BookDetail = () => {
     }, [id, user, navigate]);
 
     const handleBorrow = async () => {
+        if (book.isBorrowed) {
+            setMessage('Book is already borrowed.');
+            return;
+        }
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/books/borrowBook`, { bookId: book._id, userId: user.id });
             setBook(response.data.book);
@@ -79,6 +83,7 @@ const BookDetail = () => {
                 )}
                 <button onClick={handleStartChatbot}>Look for recommendations</button>
                 {message && <p>{message}</p>}
+
             </div>
         </center>
     );

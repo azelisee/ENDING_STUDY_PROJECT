@@ -1,5 +1,9 @@
 const User = require('../models/userModel');
+<<<<<<< HEAD
 const bcrypt = require('bcryptjs');
+=======
+//const Book = require('../models/Book');
+>>>>>>> origin/test_branch
 
 exports.getUsers = async (req, res) => {
   try {
@@ -34,6 +38,22 @@ exports.getBorrowedBooksByUser = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
+=======
+exports.getBorrowedBooksByUser = async (req, res) => {
+  try {
+      const userId = req.params.id;
+      const user = await User.findById(userId);
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+      res.json(user.borrowedBooks);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+};
+
+>>>>>>> origin/test_branch
 exports.getReturnedBooksByUser = async (req, res) => {
   try {
       const userId = req.params.id;
@@ -41,11 +61,16 @@ exports.getReturnedBooksByUser = async (req, res) => {
       if (!user) {
           return res.status(404).json({ message: 'User not found' });
       }
+<<<<<<< HEAD
       res.status(200).json(user);
+=======
+      res.json(user.returnedBooks);
+>>>>>>> origin/test_branch
   } catch (error) {
       res.status(500).json({ message: error.message });
   }
 };
+<<<<<<< HEAD
 
 exports.getUser = async (req, res) => {
   try {
@@ -87,3 +112,5 @@ exports.deleteUser = async (req, res) => {
       res.status(500).json({ error: error.message });
   }
 };
+=======
+>>>>>>> origin/test_branch

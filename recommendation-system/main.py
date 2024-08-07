@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 app = FastAPI()
 
 class UserRequest(BaseModel):
     email: str
     name: str
-
 class ChatRequest(BaseModel):
     question: str
 
@@ -47,3 +47,4 @@ async def chat_with_bot(chat_request: ChatRequest):
         return {"response": answer}
     except openai.error.InvalidRequestError as e:
         raise HTTPException(status_code=500, detail=str(e))
+

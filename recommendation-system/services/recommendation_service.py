@@ -1,9 +1,10 @@
+from bson import ObjectId
 import pymongo
 import os
-from bson import ObjectId
 from dotenv import load_dotenv
 
 load_dotenv()
+
 
 client = pymongo.MongoClient(os.getenv("MONGODB_URI"))
 db = client[os.getenv("DB_NAME")]
@@ -25,6 +26,7 @@ class RecommendationService:
                 "author": recommendation["author"],
                 "publishedDate": recommendation["publishedDate"],
                 "type": recommendation["type"]
+
             }
             for recommendation in recommendations
         ]

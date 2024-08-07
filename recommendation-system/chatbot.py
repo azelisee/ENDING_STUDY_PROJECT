@@ -21,6 +21,7 @@ if st.button("Get Recommendations"):
                 st.write("Recommended Books:")
                 for book in recommendations:
                     st.write(f"Title: {book['title']},  Author: {book['author']},  Type: {book['type']}")
+
             else:
                 st.write("No recommendations found.")
         else:
@@ -54,3 +55,4 @@ for message in st.session_state.conversation:
         st.write(f"User: {message['content']}")
     else:
         st.write(f"Bot: {message['content']}")
+

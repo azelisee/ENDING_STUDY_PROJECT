@@ -99,6 +99,7 @@ exports.borrowBookController = async (req, res) => {
 exports.returnBookController = async (req, res) => {
     try {
         const { bookId, userId } = req.body;
+<<<<<<< HEAD
         const book = await Book.findById(bookId);
         const user = await User.findById(userId);
 
@@ -115,6 +116,10 @@ exports.returnBookController = async (req, res) => {
         await user.save();
 
         res.json({ message: 'Book returned successfully', book });
+=======
+        const book = await returnBook(bookId, userId);
+        res.status(200).json({ book });
+>>>>>>> origin/test_branch
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
