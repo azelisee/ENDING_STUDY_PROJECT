@@ -1,8 +1,11 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from services.recommendation_service import RecommendationService, find_user_by_email_and_name
 import openai
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -13,7 +16,7 @@ class UserRequest(BaseModel):
 class ChatRequest(BaseModel):
     question: str
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY1")
 
 conversation_history = []
 

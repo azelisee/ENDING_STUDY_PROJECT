@@ -1,0 +1,493 @@
+[
+    {
+        "title": "All Quiet on the Western Front",
+        "author": "Erich Maria Remarque",
+        "publishedDate": "1929",
+        "type": "War",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Wealth of Nations",
+        "author": "Adam Smith",
+        "publishedDate": "1776",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Capital in the Twenty-First Century",
+        "author": "Thomas Piketty",
+        "publishedDate": "2013",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The General Theory of Employment, Interest, and Money",
+        "author": "John Maynard Keynes",
+        "publishedDate": "1936",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Road to Serfdom",
+        "author": "Friedrich Hayek",
+        "publishedDate": "1944",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Freakonomics",
+        "author": "Steven Levitt & Stephen Dubner",
+        "publishedDate": "2005",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Shock Doctrine",
+        "author": "Naomi Klein",
+        "publishedDate": "2007",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Poor Economics",
+        "author": "Abhijit Banerjee & Esther Duflo",
+        "publishedDate": "2011",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "publishedDate": "2011",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Misbehaving: The Making of Behavioral Economics",
+        "author": "Richard Thaler",
+        "publishedDate": "2015",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Why Nations Fail",
+        "author": "Daron Acemoglu & James Robinson",
+        "publishedDate": "2012",
+        "type": "Economy",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "A Brief History of Time",
+        "author": "Stephen Hawking",
+        "publishedDate": "1988",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Gödel, Escher, Bach: An Eternal Golden Braid",
+        "author": "Douglas Hofstadter",
+        "publishedDate": "1979",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Man Who Knew Infinity",
+        "author": "Robert Kanigel",
+        "publishedDate": "1991",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Fermat's Enigma",
+        "author": "Simon Singh",
+        "publishedDate": "1997",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Flatland: A Romance of Many Dimensions",
+        "author": "Edwin A. Abbott",
+        "publishedDate": "1884",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Joy of x: A Guided Tour of Math, from One to Infinity",
+        "author": "Steven Strogatz",
+        "publishedDate": "2012",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Innumeracy: Mathematical Illiteracy and Its Consequences",
+        "author": "John Allen Paulos",
+        "publishedDate": "1988",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Mathematics: Its Content, Methods and Meaning",
+        "author": "A.D. Aleksandrov",
+        "publishedDate": "1963",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Music of the Primes",
+        "author": "Marcus du Sautoy",
+        "publishedDate": "2003",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Chaos: Making a New Science",
+        "author": "James Gleick",
+        "publishedDate": "1987",
+        "type": "Mathematics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Selfish Gene",
+        "author": "Richard Dawkins",
+        "publishedDate": "1976",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Origin of Species",
+        "author": "Charles Darwin",
+        "publishedDate": "1859",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Double Helix",
+        "author": "James D. Watson",
+        "publishedDate": "1968",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Gene: An Intimate History",
+        "author": "Siddhartha Mukherjee",
+        "publishedDate": "2016",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Immortal Life of Henrietta Lacks",
+        "author": "Rebecca Skloot",
+        "publishedDate": "2010",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Your Inner Fish",
+        "author": "Neil Shubin",
+        "publishedDate": "2008",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Sixth Extinction: An Unnatural History",
+        "author": "Elizabeth Kolbert",
+        "publishedDate": "2014",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Greatest Show on Earth",
+        "author": "Richard Dawkins",
+        "publishedDate": "2009",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Why Evolution is True",
+        "author": "Jerry A. Coyne",
+        "publishedDate": "2009",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Emperor of All Maladies",
+        "author": "Siddhartha Mukherjee",
+        "publishedDate": "2010",
+        "type": "Biology",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "A Brief History of Time",
+        "author": "Stephen Hawking",
+        "publishedDate": "1988",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Elegant Universe",
+        "author": "Brian Greene",
+        "publishedDate": "1999",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Surely You're Joking, Mr. Feynman!",
+        "author": "Richard Feynman",
+        "publishedDate": "1985",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Fabric of the Cosmos",
+        "author": "Brian Greene",
+        "publishedDate": "2004",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Feynman Lectures on Physics",
+        "author": "Richard Feynman",
+        "publishedDate": "1964",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Black Holes and Baby Universes",
+        "author": "Stephen Hawking",
+        "publishedDate": "1993",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Grand Design",
+        "author": "Stephen Hawking & Leonard Mlodinow",
+        "publishedDate": "2010",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Particle at the End of the Universe",
+        "author": "Sean Carroll",
+        "publishedDate": "2012",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Six Easy Pieces",
+        "author": "Richard Feynman",
+        "publishedDate": "1994",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The First Three Minutes",
+        "author": "Steven Weinberg",
+        "publishedDate": "1977",
+        "type": "Physics",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Financial Accounting",
+        "author": "Jerry J. Weygandt",
+        "publishedDate": "2018",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    
+    {
+        "title": "Intermediate Accounting",
+        "author": "Donald E. Kieso",
+        "publishedDate": "2016",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Financial Statement Analysis",
+        "author": "Martin S. Fridson",
+        "publishedDate": "2011",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Principles of Accounting",
+        "author": "Belverd E. Needles",
+        "publishedDate": "2013",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Managerial Accounting",
+        "author": "Ray H. Garrison",
+        "publishedDate": "2017",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Cost Accounting: A Managerial Emphasis",
+        "author": "Charles T. Horngren",
+        "publishedDate": "2014",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Accounting for Dummies",
+        "author": "John A. Tracy",
+        "publishedDate": "2013",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Governmental and Nonprofit Accounting",
+        "author": "Robert J. Freeman",
+        "publishedDate": "2015",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Forensic Accounting",
+        "author": "D. Larry Crumbley",
+        "publishedDate": "2013",
+        "type": "Accounting",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "publishedDate": "2008",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt & David Thomas",
+        "publishedDate": "1999",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "publishedDate": "2009",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "You Don't Know JS",
+        "author": "Kyle Simpson",
+        "publishedDate": "2015",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Code Complete",
+        "author": "Steve McConnell",
+        "publishedDate": "2004",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "JavaScript: The Good Parts",
+        "author": "Douglas Crockford",
+        "publishedDate": "2008",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+        "author": "Erich Gamma",
+        "publishedDate": "1994",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Refactoring: Improving the Design of Existing Code",
+        "author": "Martin Fowler",
+        "publishedDate": "1999",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "publishedDate": "2015",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    },
+    {
+        "title": "Effective Java",
+        "author": "Joshua Bloch",
+        "publishedDate": "2001",
+        "type": "Programming",
+        "isBorrowed": false,
+        "borrowedBy": null
+    }
+]
+
+
+
+
+
+
+kubectl port-forward svc/frontend-service 3000:3000
+kubectl port-forward svc/backend-service 5000:5000
+kubectl port-forward svc/recommendation-service 8000:8000
+kubectl port-forward svc/mongodb-service 27017:27017

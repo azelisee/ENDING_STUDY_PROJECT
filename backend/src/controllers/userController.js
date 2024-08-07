@@ -1,4 +1,5 @@
 const User = require('../models/userModel');
+const bcrypt = require('bcryptjs');
 
 exports.getUsers = async (req, res) => {
   try {
@@ -60,13 +61,18 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-      const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      if (!updatedUser) {
-          return res.status(404).json({ error: 'User not found' });
-      }
-      res.status(200).json({ user: updatedUser });
+    const { password, ...updateData } = req.body;
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      updateData.password = await bcrypt.hash(password, salt);
+    }
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, updateData, { new: true });
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.status(200).json({ user: updatedUser });
   } catch (error) {
-      res.status(500).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
